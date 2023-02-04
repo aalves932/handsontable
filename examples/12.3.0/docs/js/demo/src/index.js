@@ -1,11 +1,12 @@
 import Handsontable from "handsontable/base";
+import HyperFormula from 'hyperformula';
 import "handsontable/dist/handsontable.min.css";
 import "pikaday/css/pikaday.css";
 
 import { generateExampleData, isArabicDemoEnabled } from "./utils";
 import { progressBarRenderer, starRenderer } from "./customRenderers";
 import "./styles.css";
-import { registerLanguageDictionary, arAR } from "handsontable/i18n";
+import { registerLanguageDictionary, ptBR } from 'handsontable/i18n';
 
 // choose cell types you want to use and import them
 import {
@@ -48,7 +49,7 @@ registerCellType(DropdownCellType);
 registerCellType(CheckboxCellType);
 registerCellType(NumericCellType);
 
-registerLanguageDictionary(arAR);
+registerLanguageDictionary(ptBR);
 
 import {
   alignHeaders,
@@ -61,7 +62,10 @@ const example = document.getElementById("example");
 new Handsontable(example, {
   data: generateExampleData(),
   layoutDirection: isArabicDemoEnabled() ? "rtl" : "ltr",
-  language: isArabicDemoEnabled() ? arAR.languageCode : "en-US",
+  language: isArabicDemoEnabled() ? ptBR.languageCode : "pt-BR",
+  formulas: {
+    engine: HyperFormula,
+  },
   height: 450,
   colWidths: [140, 192, 100, 90, 90, 110, 97, 100, 126],
   colHeaders: [

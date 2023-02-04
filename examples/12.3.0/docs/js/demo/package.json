@@ -19,7 +19,8 @@
     "test": "node spec/support/jasmine.config.js"
   },
   "dependencies": {
-    "handsontable": "12.3.0"
+    "handsontable": "12.3.0",
+    "hyperformula": "^2.3.0"
   },
   "devDependencies": {
     "jasmine": "3.7.0",
